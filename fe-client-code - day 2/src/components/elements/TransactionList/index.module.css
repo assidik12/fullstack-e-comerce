@@ -1,0 +1,45 @@
+.transaction-List {
+  justify-items: center;
+  width: 100%;
+  height: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 24px;
+  overflow: auto;
+}
+
+.transaction-List__card {
+  background-color: white;
+  width: 70%;
+  min-height: 250px;
+  max-height: 250px;
+  border: 4px solid var(--color-blue);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: 300ms all;
+  cursor: pointer;
+}
+
+.transaction-List__card:hover {
+  border: 4px solid var(--color-dark-blue);
+}
+.transaction-List__card__product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 12px 0;
+  max-height: 60%;
+  overflow: auto;
+}
+
+.transaction-List__card__pay {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
