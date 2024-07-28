@@ -20,6 +20,7 @@ const PORT = 3000;
 const app = express();
 
 const specs = swaggerJsdoc(options);
+
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(specs, { explorer: true }));
 
 app.use(bodyParser.json());
