@@ -26,19 +26,24 @@ Dalam era digital seperti sekarang, digitalisasi memiliki peran penting dalam me
 
 ### Teknologi yang di gunakan
 
-<div align=center>
+<div style="display:flex; justify-content:center;">
+
 <a href="https://expressjs.com/" style="margin:10px;">
 <img width=50 height=50 src="https://img.icons8.com/?size=100&id=kg46nzoJrmTR&format=png&color=000000"/>
 </a>
+
 <a href="https://nodejs.org/" style="margin:10px;">
 <img width=50 height=50 src="https://img.icons8.com/?size=100&id=54087&format=png&color=000000"/>
 </a>
+
 <a href="https://nextjs.org/" style="margin:10px;">
 <img width=50 height=50 src="https://img.icons8.com/?size=100&id=AU6Wc7r56Fxz&format=png&color=000000"/>
 </a>
+
 <a href="https://www.mysql.com/" style="margin:10px;">
 <img width=50 height=50 src="https://img.icons8.com/?size=100&id=39855&format=png&color=000000"/>
 </a>
+
 </div>
 
 ## kesimpulan
