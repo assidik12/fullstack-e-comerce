@@ -7,13 +7,12 @@ const { fetchTransaction, addTransaction } = require("../controllers/transaction
 
 let snap = new midtrans.Snap({
   isProduction: false,
-  clientKey: process.env.EXPRESS_PUBLIC_CLIENT,
-  serverKey: process.env.SECRET,
+  clientKey: process.env.MIDTRANS_CLIENT_KEY,
+  serverKey: process.env.MIDTRANS_SERVER_KEY,
 });
 
 transactions.route("/").post(async (req, res) => {
   const { total_price, paid_amount, products } = req.body;
-  console.log(products);
 
   const order = {
     no_order: randomOrderNumber(),
@@ -22,8 +21,9 @@ transactions.route("/").post(async (req, res) => {
   };
 
   try {
+    const token = await snap.createTransaction({ transaction_details: { order_id: order.no_order, gross_amount: order.total_price } });
     const result = await addTransaction(order, products);
-    response.success(result, "transaction created!", res);
+    response.success({ data: result, token }, "transaction created!", res);
   } catch (err) {
     response.error({ error: err.message }, req.originalUrl, 403, res);
   }
@@ -32,10 +32,7 @@ transactions.route("/").post(async (req, res) => {
 transactions.route("/").get(async (req, res) => {
   try {
     const result = await fetchTransaction();
-    const field = result.transactions.pop();
-
-    const token = await snap.createTransaction({ transaction_details: { order_id: field.no_order, gross_amount: field.total_price } });
-    response.success(result, token, res);
+    response.success(result, "tranasaction fatched!", res);
   } catch (err) {
     response.error({ error: err.message }, req.originalUrl, 403, res);
   }

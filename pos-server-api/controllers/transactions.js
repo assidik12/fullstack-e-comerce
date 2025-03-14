@@ -74,7 +74,6 @@ async function updateStock(transaction_detail, product_id) {
     });
 
     const update = await db.query("INSERT INTO products (id,stock) VALUES ? ON DUPLICATE KEY UPDATE stock = VALUES(stock)", [update_stock]);
-    console.log(update);
 
     return update;
   }
